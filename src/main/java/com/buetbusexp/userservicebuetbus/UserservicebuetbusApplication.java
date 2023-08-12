@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class UserservicebuetbusApplication {
 	@GetMapping("/message")
 public String message() {
-	return "Hello from User Service ";
+	return "Hello from User Service buet bus";
 }
 	public static void main(String[] args) {
 		SpringApplication.run(UserservicebuetbusApplication.class, args);
