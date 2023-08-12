@@ -9,10 +9,10 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 
 public class UserservicebuetbusApplication {
-	@GetMapping("/message")
-public String message() {
-	return "Hello from User Service buet bus";
-}
+//	@GetMapping("/message")
+//public String message() {
+//	return "Hello from User Service buet bus";
+//}
 	public static void main(String[] args) {
 		SpringApplication.run(UserservicebuetbusApplication.class, args);
 	}
