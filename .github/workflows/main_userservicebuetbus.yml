@@ -49,5 +49,5 @@ jobs:
         with:
           app-name: 'userServiceBuetBus'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_051EAA2724454F14ACACB063CE600194 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_5C99177299394C218DDF601B5CD563D3 }}
           package: '*.jar'
