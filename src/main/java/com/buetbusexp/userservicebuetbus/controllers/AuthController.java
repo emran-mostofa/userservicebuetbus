@@ -128,13 +128,6 @@ public class AuthController {
                 .body(new MessageResponse("You've been signed out!"));
     }
 
-    @PostMapping("/createbus")
-    public ResponseEntity<?> createBus() {
-        // help me creating a bus here
-
-
-        return ResponseEntity.ok(new MessageResponse("BUS Created"));
-    }
 
 }
 
