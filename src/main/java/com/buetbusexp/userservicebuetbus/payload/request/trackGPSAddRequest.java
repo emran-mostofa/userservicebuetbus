@@ -1,35 +1,61 @@
 package com.buetbusexp.userservicebuetbus.payload.request;
 
+import com.buetbusexp.userservicebuetbus.models.Bus;
+import jakarta.persistence.Temporal;
+import jakarta.persistence.TemporalType;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Positive;
 
+import java.util.Date;
+
 public class trackGPSAddRequest {
-    private String latitude;
-    private String longitude;
-    private String busId;
 
-    private String time;
-    private String date;
+    private Bus bus;
 
+    private Double longitude;
+    private Double latitude;
+    private Double speed;
 
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date timestamp;
 
-    public String getLatitude() {
-        return latitude;
+    public Bus getBus() {
+        return bus;
     }
 
-    public String getLongitude() {
+    public void setBus(Bus bus) {
+        this.bus = bus;
+    }
+
+    public Double getLongitude() {
         return longitude;
     }
 
-    public String getBusId() {
-        return busId;
+    public void setLongitude(Double longitude) {
+        this.longitude = longitude;
     }
 
-    public String getTime() {
-        return time;
+    public Double getLatitude() {
+        return latitude;
     }
 
-    public String getDate() {
-        return date;
+    public void setLatitude(Double latitude) {
+        this.latitude = latitude;
+    }
+
+    public Double getSpeed() {
+        return speed;
+    }
+
+    public void setSpeed(Double speed) {
+        this.speed = speed;
+    }
+
+    public Date getTimestamp() {
+        return timestamp;
+    }
+
+    public void setTimestamp(Date timestamp) {
+        this.timestamp = timestamp;
     }
 }

@@ -127,7 +127,7 @@ public class WebSecurityConfig  {
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(auth ->
                         auth.requestMatchers("/api/auth/**").permitAll()
-                                .requestMatchers("/api/test/**","/api/trackGPS/**").permitAll()
+                                .requestMatchers("/api/test/**","/api/trackGPS/**","/api/trackGPS/getTracksInTimestampRange/").permitAll()
                                 .anyRequest().authenticated()
                 );
 

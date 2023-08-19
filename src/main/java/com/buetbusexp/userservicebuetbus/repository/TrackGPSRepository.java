@@ -6,6 +6,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.stereotype.Repository;
 
+import java.sql.Date;
 import java.util.List;
 
 @Repository
@@ -13,6 +14,7 @@ import java.util.List;
 public interface TrackGPSRepository extends JpaRepository<TrackGPS, Long> {
     // Find all tracks for a specific bus ID
     List<TrackGPS> findByBusId(Long busId);
+    List<TrackGPS> findByTimestampBetween(Date startTime, Date endTime);
 
 //    // Find all tracks within a specific time range
 //    List<TrackGPS> findByTimestampBetweenOrderByTimestampAsc(long startTime, long endTime);
@@ -28,3 +30,6 @@ public interface TrackGPSRepository extends JpaRepository<TrackGPS, Long> {
 //    List<TrackGPS> findByLatitudeAndLongitude(double latitude, double longitude);
 
 }
+
+
+
