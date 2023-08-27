@@ -37,6 +37,13 @@ public class BusController {
         bus.setName(busRequest.getName());
         bus.setNumberPlate(busRequest.getNumberPlate());
         bus.setCapacity(busRequest.getCapacity());
+        bus.setDriverName(busRequest.getDriverName());
+        bus.setConductorName(busRequest.getConductorName());
+        bus.setBusType(busRequest.getBusType());
+        bus.setRouteName(busRequest.getRouteName());
+        bus.setStatus(busRequest.getStatus());
+        bus.setDateofActivation(busRequest.getDateofActivation());
+
         busRepository.save(bus);
         return ResponseEntity.ok(new MessageResponse("Bus created successfully!"));
     }

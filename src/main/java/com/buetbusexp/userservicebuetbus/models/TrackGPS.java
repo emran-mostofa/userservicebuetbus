@@ -28,7 +28,6 @@ public class TrackGPS {
 
     @Temporal(TemporalType.TIMESTAMP)
     private Date timestamp;
-
     // Constructors, getters, setters
     public TrackGPS() {
 

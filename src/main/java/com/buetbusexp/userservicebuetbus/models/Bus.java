@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 
+import java.util.Date;
+
 @Entity
 @Table(name = "buses",
     uniqueConstraints = {
@@ -27,21 +29,41 @@ public class Bus {
     @Size(max = 20)
     private String numberPlate;
 //
-//    private String driverName;
+    private String driverName;
 //    private String driverPhone;
-//    private String conductorName;
+    private String conductorName;
 //    private String conductorPhone;
-//    private String routeName;
+
+    @Size(max = 20)
+    private String routeName;
     @Size(max = 20)
     private String capacity;
 
     @Size(max = 20)
     private String status;
 
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date dateofActivation;
+
+    private String busType;
+
 
 
     public Bus() {
 
+    }
+
+
+    public Bus( String name, String numberPlate, String driverName, String conductorName, String routeName, String capacity, String status, Date dateofActivation, String busType) {
+        this.name = name;
+        this.numberPlate = numberPlate;
+        this.driverName = driverName;
+        this.conductorName = conductorName;
+        this.routeName = routeName;
+        this.capacity = capacity;
+        this.status = status;
+        this.dateofActivation = dateofActivation;
+        this.busType = busType;
     }
 
     public Bus(String name, String numberPlate, String capacity) {
@@ -86,10 +108,26 @@ public class Bus {
 //        return driverName;
 //    }
 //
-//    public void setDriverName(String driverName) {
-//        this.driverName = driverName;
-//    }
-//
+    public void setDriverName(String driverName) {
+        this.driverName = driverName;
+    }
+
+    public void setConductorName(String conductorName) {
+        this.conductorName = conductorName;
+    }
+
+    public void setRouteName(String routeName) {
+        this.routeName = routeName;
+    }
+
+    public void setDateofActivation(Date dateofActivation) {
+        this.dateofActivation = dateofActivation;
+    }
+
+    public void setBusType(String busType) {
+        this.busType = busType;
+    }
+    //
 //    public String getDriverPhone() {
 //        return driverPhone;
 //    }
