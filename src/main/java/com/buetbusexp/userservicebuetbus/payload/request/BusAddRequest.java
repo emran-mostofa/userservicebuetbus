@@ -16,7 +16,6 @@ public class BusAddRequest {
     private String capacity;
     private String status;
     private String busType;
-    private String routeName;
     private String driverName;
     private String conductorName;
     private Date dateofActivation;
@@ -35,14 +34,6 @@ public class BusAddRequest {
 
     public void setBusType(String busType) {
         this.busType = busType;
-    }
-
-    public String getRouteName() {
-        return routeName;
-    }
-
-    public void setRouteName(String routeName) {
-        this.routeName = routeName;
     }
 
     public String getDriverName() {
@@ -81,14 +72,11 @@ public class BusAddRequest {
     public void setNumberPlate(String numberPlate) {
         this.numberPlate = numberPlate;
     }
-//
-//    public String getDriverName() {
-//        return driverName;
-//    }
-//
-//    public void setDriverName(String driverName) {
-//        this.driverName = driverName;
-//    }
+
+
+    public void setDriverName(String driverName) {
+        this.driverName = driverName;
+    }
 
     public String getCapacity() {
         return capacity;

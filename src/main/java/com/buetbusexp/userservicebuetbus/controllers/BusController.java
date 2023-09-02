@@ -31,7 +31,7 @@ public class BusController {
     }
 
     @PostMapping("/create")
-    @PreAuthorize("hasRole('ADMIN')")
+//    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<?> createBus(@Valid @RequestBody BusAddRequest busRequest) {
         Bus bus = new Bus();
         bus.setName(busRequest.getName());
@@ -40,7 +40,6 @@ public class BusController {
         bus.setDriverName(busRequest.getDriverName());
         bus.setConductorName(busRequest.getConductorName());
         bus.setBusType(busRequest.getBusType());
-        bus.setRouteName(busRequest.getRouteName());
         bus.setStatus(busRequest.getStatus());
         bus.setDateofActivation(busRequest.getDateofActivation());
 
@@ -50,7 +49,7 @@ public class BusController {
 
 
     @PutMapping("/{id}")
-    @PreAuthorize("hasRole('ADMIN')")
+//    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<?> updateBus(@PathVariable Long id, @RequestBody @Valid BusUpdateRequest busRequest) {
         Bus existingBus = busRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Bus not found"));
@@ -65,7 +64,7 @@ public class BusController {
 
 
     @DeleteMapping("delete/{id}")
-    @PreAuthorize("hasRole('ADMIN')")
+//    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<?> deleteBus(@PathVariable Long id) {
         busRepository.deleteById(id);
         return ResponseEntity.ok(new MessageResponse("Bus deleted successfully!"));

@@ -35,8 +35,6 @@ public class Bus {
 //    private String conductorPhone;
 
     @Size(max = 20)
-    private String routeName;
-    @Size(max = 20)
     private String capacity;
 
     @Size(max = 20)
@@ -54,12 +52,11 @@ public class Bus {
     }
 
 
-    public Bus( String name, String numberPlate, String driverName, String conductorName, String routeName, String capacity, String status, Date dateofActivation, String busType) {
+    public Bus( String name, String numberPlate, String driverName, String conductorName, String capacity, String status, Date dateofActivation, String busType) {
         this.name = name;
         this.numberPlate = numberPlate;
         this.driverName = driverName;
         this.conductorName = conductorName;
-        this.routeName = routeName;
         this.capacity = capacity;
         this.status = status;
         this.dateofActivation = dateofActivation;
@@ -116,9 +113,6 @@ public class Bus {
         this.conductorName = conductorName;
     }
 
-    public void setRouteName(String routeName) {
-        this.routeName = routeName;
-    }
 
     public void setDateofActivation(Date dateofActivation) {
         this.dateofActivation = dateofActivation;

@@ -1,4 +1,5 @@
 //package com.buetbusexp.userservicebuetbus.models;
+//package com.buetbusexp.userservicebuetbus.models;
 //
 //
 //import jakarta.persistence.*;
@@ -17,6 +18,7 @@
 //    @Id
 //    @GeneratedValue(strategy = GenerationType.IDENTITY)
 //    private  Long id;
+//
 //
 //    @ManyToOne
 //    @JoinColumn(name = "route_id")

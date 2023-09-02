@@ -5,11 +5,9 @@
 //import java.util.Map;
 ////
 //@Entity
-//@Table(name = "routes"
-////uniqueConstraints = {
-////        @UniqueConstraint(columnNames = "name")
-////}
-//)
+//@Table(name = "routes",uniqueConstraints = {
+//        @UniqueConstraint(columnNames = "name")
+//})
 //
 //public class Route {
 ////
@@ -19,7 +17,8 @@
 ////
 //    private String name;
 //    private String description;
-//    private String origin;
+//    @ManyToOne
+//    @JoinColumn(name = "start_point_id")
 ////
 ////    @ElementCollection
 ////    private List<String> pickupPoints;
