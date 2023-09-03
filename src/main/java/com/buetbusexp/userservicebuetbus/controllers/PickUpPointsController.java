@@ -1,10 +1,9 @@
 package com.buetbusexp.userservicebuetbus.controllers;
+import com.buetbusexp.userservicebuetbus.payload.response.MessageResponse;
 import com.buetbusexp.userservicebuetbus.repository.PickUpPointsRepository;
 import com.buetbusexp.userservicebuetbus.models.PickUpPoints;
 import com.buetbusexp.userservicebuetbus.payload.request.PickUpPointsAddRequest;
-import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -49,6 +48,28 @@ public class PickUpPointsController {
     public ResponseEntity<?> getPickUpPointsByRoute(@PathVariable Long routeId) {
         List<PickUpPoints> pickUpPoints = pickUpPointsRepository.findbyRouteId(routeId);
         return ResponseEntity.ok(pickUpPoints);
+    }
+
+    @DeleteMapping("delete/{id}")
+//    @PreAuthorize("hasRole('ADMIN')")
+    public ResponseEntity<?> deletePickUpPoints(@PathVariable Long id) {
+        pickUpPointsRepository.deleteById(id);
+        return ResponseEntity.ok(new MessageResponse("PickUpoint deleted successfully!"));
+    }
+
+    @PutMapping("/update-by-id/{id}")
+    public ResponseEntity<MessageResponse> updatePickUpPoints(@PathVariable Long id, @RequestBody PickUpPoints pickUpPoints) {
+        PickUpPoints existingPickUpPoints = pickUpPointsRepository.findById(id).orElseThrow(() -> new RuntimeException("PickUpPoints not found"));
+
+        existingPickUpPoints.setName(pickUpPoints.getName());
+        existingPickUpPoints.setTime(pickUpPoints.getTime());
+        existingPickUpPoints.setLatitude(pickUpPoints.getLatitude());
+        existingPickUpPoints.setLongitude(pickUpPoints.getLongitude());
+        existingPickUpPoints.setRoute(pickUpPoints.getRoute());
+        pickUpPointsRepository.save(existingPickUpPoints);
+        return ResponseEntity.ok(new MessageResponse("PickUpPoints updated successfully!"));
+
+
     }
 
 
