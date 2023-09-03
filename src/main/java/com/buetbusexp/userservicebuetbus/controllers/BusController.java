@@ -22,7 +22,7 @@ public class BusController {
     private BusRepository busRepository;
 
     @GetMapping("get/{id}")
-    @PreAuthorize("hasRole('ADMIN')")
+//    @PreAuthorize("hasRole('ADMIN')")
             public ResponseEntity<?> getBusById(@PathVariable Long id) {
         Bus bus = busRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Bus not found"));

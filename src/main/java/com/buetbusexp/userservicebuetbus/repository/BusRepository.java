@@ -12,7 +12,7 @@ import java.util.Optional;
 @EnableJpaRepositories
 public interface BusRepository extends JpaRepository<Bus, Long> {
   Optional<Bus> findByName(String name);
-  Optional<Bus> findById(Long id);
+    Optional<Bus> findById(Long id);
 
 
 //  Optional<Bus> findByBusType(BType busType);
