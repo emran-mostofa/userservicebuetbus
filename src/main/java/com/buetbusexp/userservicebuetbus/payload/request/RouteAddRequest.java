@@ -1,57 +1,17 @@
-package com.buetbusexp.userservicebuetbus.models;
-//
-import jakarta.persistence.*;
-import java.util.List;
-import java.util.Map;
-//
-@Entity
-@Table(name = "routes",uniqueConstraints = {
-        @UniqueConstraint(columnNames = "name")
-})
+package com.buetbusexp.userservicebuetbus.payload.request;
 
-public class Route {
-    //
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    //
+import com.buetbusexp.userservicebuetbus.models.PickUpPoints;
+import com.buetbusexp.userservicebuetbus.models.Route;
+
+import java.util.List;
+
+public class RouteAddRequest {
     private String name;
     private String description;
-
-    @OneToMany(mappedBy = "route", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<PickUpPoints> pickupPoints;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "start_pickup_point_id")
     private PickUpPoints startPickUpPoint;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "end_pickup_point_id")
     private PickUpPoints endPickUpPoint;
-
-    //add time attribute
     private String time;
-
-    public Route(String name, String description, List<PickUpPoints> pickupPoints, PickUpPoints startPickUpPoint, PickUpPoints endPickUpPoint, String time) {
-        this.name = name;
-        this.description = description;
-        this.pickupPoints = pickupPoints;
-        this.startPickUpPoint = startPickUpPoint;
-        this.endPickUpPoint = endPickUpPoint;
-        this.time = time;
-    }
-
-    public Route() {
-
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public String getName() {
         return name;
